@@ -1,6 +1,10 @@
+package day01
+
+import readInput
+
 fun main() {
     val anchor1 = System.currentTimeMillis()
-    val input = readInput("Day01")
+    val input = readInput("day01/input")
     val anchor2 = System.currentTimeMillis()
     var sum = 0L
     input.forEach {

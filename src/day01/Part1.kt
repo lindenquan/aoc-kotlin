@@ -1,5 +1,9 @@
+package day01
+
+import readInput
+
 fun main() {
-    val input = readInput("Day01")
+    val input = readInput("day01/input")
     var sum = 0L
     input.forEach {
         sum += parse(it)

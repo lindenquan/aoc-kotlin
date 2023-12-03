@@ -1,5 +1,9 @@
+package day02
+
+import readInput
+
 fun main() {
-    val input = readInput("Day02")
+    val input = readInput("day02/input")
     var sum = 0
 
     var target = hashMapOf("red" to 12, "green" to 13, "blue" to 14)
