@@ -1,12 +1,15 @@
 package day02
 
+import process
 import readInput
 
 fun main() {
-    val input = readInput("day02/input")
-    var sum = 0
+    process(readInput("day02/input"), ::solvePart1)
+}
 
-    var target = hashMapOf("red" to 12, "green" to 13, "blue" to 14)
+fun solvePart1(input: List<String>) {
+    var sum = 0
+    val target = hashMapOf("red" to 12, "green" to 13, "blue" to 14)
     input.forEach {
         sum += possible(it, target)
     }

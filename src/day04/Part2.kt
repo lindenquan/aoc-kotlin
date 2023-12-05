@@ -1,20 +1,25 @@
 package day04
 
+import process
 import readInput
 import java.util.*
 
-class Card (
-    val number: Int,
-    val winningNumbers: List<Int>,
-    val allNumbers: List<Int>
+class Card(
+        val number: Int,
+        val winningNumbers: List<Int>,
+        val allNumbers: List<Int>
 ) {
+    var point: Int = -1
     override fun toString(): String {
         return "number: $number, winningNumbers: $winningNumbers, allNumbers: $allNumbers"
     }
 }
 
 fun main() {
-    val input = readInput("day04/input")
+    process(readInput("day04/input"), ::solvePart2)
+}
+
+fun solvePart2(input: List<String>) {
     val originCards = mutableListOf<Card>()
     val queue: Queue<Card> = LinkedList()
     input.forEach {
@@ -24,12 +29,12 @@ fun main() {
     }
 
     var count = 0
-    while(queue.isNotEmpty()) {
+    while (queue.isNotEmpty()) {
         val card = queue.remove()
-        count ++
+        count++
         val points = getPoints(card)
         val cardNumber = card.number
-        for(i in 1.. points) {
+        for (i in 1..points) {
             queue.add(originCards[i + cardNumber - 1])
         }
     }
@@ -38,9 +43,14 @@ fun main() {
 }
 
 fun getPoints(card: Card): Int {
+    if (card.point != -1) {
+        return card.point
+    }
+
     val allNumbersMap = card.allNumbers.map { it to 1 }.toMap()
     var count = 0
     card.winningNumbers.forEach { if (allNumbersMap.getOrDefault(it, 0) == 1) count++ }
+    card.point = count
     return count
 }
 

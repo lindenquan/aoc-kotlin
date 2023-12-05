@@ -1,9 +1,13 @@
 package day01
 
+import process
 import readInput
 
 fun main() {
-    val input = readInput("day01/input")
+    process(readInput("day01/input"), ::solvePart1)
+}
+
+fun solvePart1(input: List<String>) {
     var sum = 0L
     input.forEach {
         sum += parse(it)

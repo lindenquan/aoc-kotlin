@@ -1,9 +1,13 @@
 package day03
 
+import process
 import readInput
 
 fun main() {
-    val input = readInput("day03/input")
+    process(readInput("day03/input"), ::solvePart1)
+}
+
+fun solvePart1(input: List<String>) {
     val engine = mutableListOf<List<Char>>()
     input.forEach {
         engine.add(it.toList())

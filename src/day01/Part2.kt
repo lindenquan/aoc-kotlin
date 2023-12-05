@@ -1,21 +1,19 @@
 package day01
 
+import process
 import readInput
 
 fun main() {
-    val anchor1 = System.currentTimeMillis()
-    val input = readInput("day01/input")
-    val anchor2 = System.currentTimeMillis()
+    process(readInput("day01/input"), ::solvePart2)
+}
+
+fun solvePart2(input: List<String>) {
     var sum = 0L
     input.forEach {
         sum += advancedParse(it)
     }
 
-    val anchor3 = System.currentTimeMillis()
     println(sum)
-    println("Read input file: ${anchor2 - anchor1} ms")
-    println("Process input: ${anchor3 - anchor2} ms")
-    println("Total: ${anchor3 - anchor1} ms")
 }
 
 fun advancedParse(line: String): Int {
