@@ -18,12 +18,11 @@ fun solvePart2(input: List<String>) {
 }
 
 fun powerOfCubes(line: String): Int {
-    val match = Regex("Game (\\d+): (.*)").find(line)!!
-    val (gameNumber, game) = match.destructured
-
-    val redCount = Regex("(\\d+) red").findAll(game).map { it.groupValues[1].toInt() }.max()
-    val greenCount = Regex("(\\d+) green").findAll(game).map { it.groupValues[1].toInt() }.max()
-    val blueCount = Regex("(\\d+) blue").findAll(game).map { it.groupValues[1].toInt() }.max()
+    val match = Regex("Game \\d+: (.*)").find(line)!!
+    val (game) = match.destructured
+    val redCount = getColorCount("red", game)
+    val greenCount = getColorCount("green", game)
+    val blueCount = getColorCount("blue", game)
 
     return redCount * greenCount * blueCount
 }

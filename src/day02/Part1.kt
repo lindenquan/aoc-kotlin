@@ -21,9 +21,9 @@ fun possible(line: String, target: HashMap<String, Int>): Int {
     val match = Regex("Game (\\d+): (.*)").find(line)!!
     val (gameNumber, game) = match.destructured
 
-    val redCount = Regex("(\\d+) red").findAll(game).map { it.groupValues[1].toInt() }.max()
-    val greenCount = Regex("(\\d+) green").findAll(game).map { it.groupValues[1].toInt() }.max()
-    val blueCount = Regex("(\\d+) blue").findAll(game).map { it.groupValues[1].toInt() }.max()
+    val redCount = getColorCount("red", game)
+    val greenCount = getColorCount("green", game)
+    val blueCount = getColorCount("blue", game)
 
     val targetRed = target.get("red")!!
     val targetGreen = target.get("green")!!
@@ -34,5 +34,9 @@ fun possible(line: String, target: HashMap<String, Int>): Int {
     }
 
     return 0
+}
+
+fun getColorCount(color: String, game: String): Int {
+    return Regex("(\\d+) $color").findAll(game).map { it.groupValues[1].toInt() }.max()
 }
 

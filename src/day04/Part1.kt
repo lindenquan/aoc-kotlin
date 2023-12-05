@@ -18,19 +18,19 @@ fun solvePart1(input: List<String>) {
 
 fun parse(line: String): Int {
     val numbers = getNumbers(line)
-    val winningNumbers = numbers[1] as List<Int>
-    val allNumbers = numbers[2] as List<Int>
+    val winningNumbers = numbers[1]
+    val allNumbers = numbers[2]
     val allNumbersMap = allNumbers.map { it to 1 }.toMap()
     var count = 0
     winningNumbers.forEach { if (allNumbersMap.getOrDefault(it, 0) == 1) count++ }
     return if (count == 0) 0 else 1 shl count - 1
 }
 
-fun getNumbers(line: String): List<Any> {
+fun getNumbers(line: String): List<List<Int>> {
     val match = Regex("Card\\s+(\\d+):\\s+(.*)\\s+\\|\\s+(.*)").find(line)!!
     val (number, winningNumbers, allNumbersStr) = match.destructured
     return listOf(
-            number.toInt(),
+            listOf(number.toInt()),
             winningNumbers.split(Regex("\\s+")).map { it.toInt() },
             allNumbersStr.split(Regex("\\s+")).map { it.toInt() }
     )

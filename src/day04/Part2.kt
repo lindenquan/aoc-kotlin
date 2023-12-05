@@ -56,9 +56,9 @@ fun getPoints(card: Card): Int {
 
 fun convertToCard(line: String): Card {
     val numbers = getNumbers(line)
-    val number = numbers[0] as Int
-    val winningNumbers = numbers[1] as List<Int>
-    val allNumbers = numbers[2] as List<Int>
+    val number = numbers[0][0]
+    val winningNumbers = numbers[1]
+    val allNumbers = numbers[2]
     return Card(number, winningNumbers, allNumbers)
 }
 
