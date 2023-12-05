@@ -4,7 +4,7 @@ import process
 import readInput
 
 fun main() {
-    process(readInput("day02/input"), ::solvePart2)
+    process(readInput("aoc2023/day02/input.txt"), ::solvePart2)
 }
 
 fun solvePart2(input: List<String>) {

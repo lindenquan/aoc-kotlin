@@ -16,7 +16,7 @@ class Card(
 }
 
 fun main() {
-    process(readInput("day04/input"), ::solvePart2)
+    process(readInput("aoc2023/day04/input.txt"), ::solvePart2)
 }
 
 fun solvePart2(input: List<String>) {
