@@ -47,7 +47,7 @@ fun getInput(inputTxt: List<String>): MutableList<Race> {
 fun getNumberList(s: String): List<Long> {
     return s.substringAfter(":")
         .split(Regex("\\s+"))
-        .filter { it.length > 0 }
+        .filter { it.isNotEmpty() }
         .map { it.toLong() }
 }
 
