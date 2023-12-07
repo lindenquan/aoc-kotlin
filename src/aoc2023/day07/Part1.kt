@@ -2,7 +2,6 @@ package day07
 
 import process
 import readInput
-import java.util.function.Predicate
 
 enum class GameMode {
     D_MODE, // default mode
