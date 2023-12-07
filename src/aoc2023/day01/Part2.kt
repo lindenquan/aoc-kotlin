@@ -30,10 +30,10 @@ fun advancedParse(line: String): Int {
     var first = 0;
     var last = 0;
     for (i in line.indices) {
-        val c = line[i].code
+        val c = line[i]
         var digit = 0
-        if (c in 48..57) {
-            digit = c - 48
+        if (c in '0'..'9') {
+            digit = c - '0'
         }
 
         if (digit == 0 && i + 3 <= line.length) {
