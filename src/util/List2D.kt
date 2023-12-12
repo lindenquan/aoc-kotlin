@@ -1,6 +1,8 @@
 package util
 
 import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.reflect.KClass
 
 open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Regex = Regex("")) {
@@ -71,7 +73,7 @@ open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Reg
         }
     }
 
-    fun rowsAll(item: T): MutableList<Int> {
+    fun rowsAll(item: Char): MutableList<Int> {
         val rows = mutableListOf<Int>()
         for (i in data.indices) {
             if (data[i].all { it == item }) {
@@ -82,7 +84,7 @@ open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Reg
         return rows
     }
 
-    fun colsAll(item: T): MutableList<Int> {
+    fun colsAll(item: Char): MutableList<Int> {
         val cols = mutableListOf<Int>()
         a@ for (i in data[0].indices) {
             for (j in data.indices) {
@@ -96,5 +98,26 @@ open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Reg
 
     fun shortestPathSteps(l1: Pair<Int, Int>, l2: Pair<Int, Int>): Int {
         return abs(l1.first - l2.first) + abs(l1.second - l2.second)
+    }
+
+    fun shortestPathSteps(
+        l1: Pair<Int, Int>,
+        l2: Pair<Int, Int>,
+        multiple: Int,
+        rows: List<Int>,
+        cols: List<Int>
+    ): Long {
+        val minRow = min(l1.first, l2.first)
+        val maxRow = max(l1.first, l2.first)
+        val minCol = min(l1.second, l2.second)
+        val maxCol = max(l1.second, l2.second)
+
+        val rowCount = rows.filter { it in (minRow + 1)..<maxRow }.size
+        val colCount = cols.filter { it in (minCol + 1)..<maxCol }.size
+
+        val totalRow = abs(l1.first - l2.first)
+        val totalCol = abs(l1.second - l2.second)
+
+        return (totalRow.toLong() + rowCount.toLong() * (multiple - 1)) + (totalCol.toLong() + colCount.toLong() * (multiple - 1))
     }
 }
