@@ -21,7 +21,7 @@ fun solvePart1(inputText: List<String>) {
         MutableList(inputSize.second) { Mark.NOT_VISITED }
     }
 
-    println(getSteps(input, map).size/2)
+    println(getSteps(input, map).size / 2)
 }
 
 fun getSteps(

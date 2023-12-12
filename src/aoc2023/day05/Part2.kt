@@ -38,7 +38,10 @@ fun solvePart2(input: List<String>) {
     println(minLocation)
 }
 
-fun getTargetRanges(sourceRanges: MutableList<LongRange>, maps: MutableList<Map>): MutableList<LongRange> {
+fun getTargetRanges(
+    sourceRanges: MutableList<LongRange>,
+    maps: MutableList<Map>
+): MutableList<LongRange> {
     val targetRanges = mutableListOf<LongRange>()
     sourceRanges.forEach { sourceRange ->
         val mappedSourceRanges = mutableListOf<LongRange>()
@@ -57,7 +60,10 @@ fun getTargetRanges(sourceRanges: MutableList<LongRange>, maps: MutableList<Map>
     return targetRanges
 }
 
-fun getUnmappedRanges(range: LongRange, mappedRanges: MutableList<LongRange>): MutableList<LongRange> {
+fun getUnmappedRanges(
+    range: LongRange,
+    mappedRanges: MutableList<LongRange>
+): MutableList<LongRange> {
     if (mappedRanges.isEmpty()) {
         return mutableListOf(range)
     }

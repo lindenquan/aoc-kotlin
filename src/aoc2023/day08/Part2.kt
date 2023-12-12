@@ -18,5 +18,7 @@ fun solvePart2(inputText: List<String>) {
     println(steps)
 }
 
-tailrec fun greatestCommonDivisor(x: Long, y: Long): Long = if (y == 0L) x else greatestCommonDivisor(y, x % y)
+tailrec fun greatestCommonDivisor(x: Long, y: Long): Long =
+    if (y == 0L) x else greatestCommonDivisor(y, x % y)
+
 fun leastCommonMultiple(x: Long, y: Long) = x * y / greatestCommonDivisor(x, y)

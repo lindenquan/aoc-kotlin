@@ -30,9 +30,9 @@ fun getNumbers(line: String): List<List<Int>> {
     val match = Regex("Card\\s+(\\d+):\\s+(.*)\\s+\\|\\s+(.*)").find(line)!!
     val (number, winningNumbers, allNumbersStr) = match.destructured
     return listOf(
-            listOf(number.toInt()),
-            winningNumbers.split(Regex("\\s+")).map { it.toInt() },
-            allNumbersStr.split(Regex("\\s+")).map { it.toInt() }
+        listOf(number.toInt()),
+        winningNumbers.split(Regex("\\s+")).map { it.toInt() },
+        allNumbersStr.split(Regex("\\s+")).map { it.toInt() }
     )
 }
 

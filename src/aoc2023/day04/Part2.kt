@@ -5,9 +5,9 @@ import util.readInput
 import java.util.*
 
 class Card(
-        val number: Int,
-        val winningNumbers: List<Int>,
-        val allNumbers: List<Int>
+    val number: Int,
+    val winningNumbers: List<Int>,
+    val allNumbers: List<Int>
 ) {
     var point: Int = -1
     override fun toString(): String {

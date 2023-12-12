@@ -49,7 +49,8 @@ class Card(
                     if (mutableValue[i].first == JOKER && mutableValue.size > 1) {
                         val jokerPoint = mutableValue[i].second
                         mutableValue.removeAt(i)
-                        mutableValue[0] = Pair(mutableValue[0].first, mutableValue[0].second + jokerPoint)
+                        mutableValue[0] =
+                            Pair(mutableValue[0].first, mutableValue[0].second + jokerPoint)
                         break
                     }
                 }

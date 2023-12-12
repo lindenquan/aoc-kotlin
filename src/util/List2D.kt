@@ -2,7 +2,7 @@ package util
 
 import kotlin.reflect.KClass
 
-open class List2D<T: Any>(_data: List<String>, _type: KClass<T>, delimiter: Regex = Regex("")) {
+open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Regex = Regex("")) {
     val data: List<List<T>>
 
     init {
@@ -11,7 +11,7 @@ open class List2D<T: Any>(_data: List<String>, _type: KClass<T>, delimiter: Rege
                 .map { it }
                 .filter { it.isNotEmpty() }
                 .map {
-                    when(_type) {
+                    when (_type) {
                         Int::class -> it.toInt()
                         Long::class -> it.toLong()
                         Char::class -> it[0]
@@ -24,15 +24,15 @@ open class List2D<T: Any>(_data: List<String>, _type: KClass<T>, delimiter: Rege
     }
 
     fun find(item: T): Pair<Int, Int>? {
-      for(i in data.indices) {
-          for(j in data[i].indices) {
-              if(data[i][j].equals(item)) {
-                  return Pair(i, j)
-              }
-          }
-      }
+        for (i in data.indices) {
+            for (j in data[i].indices) {
+                if (data[i][j].equals(item)) {
+                    return Pair(i, j)
+                }
+            }
+        }
 
-      return null
+        return null
     }
 
     fun size(): Pair<Int, Int> {

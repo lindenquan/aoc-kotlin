@@ -19,5 +19,5 @@ fun getInputForPart2(inputText: List<String>): Race {
 }
 
 fun getNumber(s: String): Long {
-   return s.substringAfter(":").replace(" ", "").toLong()
+    return s.substringAfter(":").replace(" ", "").toLong()
 }

@@ -4,9 +4,9 @@ import util.process
 import util.readInput
 
 class Map(
-        val from: Long,
-        val to: Long,
-        val size: Long
+    val from: Long,
+    val to: Long,
+    val size: Long
 ) {
     override fun toString(): String {
         return "{from: $from, to: $to, size: $size}"
@@ -14,14 +14,14 @@ class Map(
 }
 
 class Input(
-        var seeds: Iterable<Long>,
-        val seedToSoil: MutableList<Map>,
-        val soilToFertilizer: MutableList<Map>,
-        val fertilizerToWater: MutableList<Map>,
-        val waterToLight: MutableList<Map>,
-        val lightToTemp: MutableList<Map>,
-        val tempToHumidity: MutableList<Map>,
-        val humidityToLocation: MutableList<Map>,
+    var seeds: Iterable<Long>,
+    val seedToSoil: MutableList<Map>,
+    val soilToFertilizer: MutableList<Map>,
+    val fertilizerToWater: MutableList<Map>,
+    val waterToLight: MutableList<Map>,
+    val lightToTemp: MutableList<Map>,
+    val tempToHumidity: MutableList<Map>,
+    val humidityToLocation: MutableList<Map>,
 )
 
 fun main() {
@@ -62,7 +62,16 @@ fun getInputObj(input: List<String>): Input {
         }
     }
 
-    return Input(seeds, seedToSoil, soilToFertilizer, fertilizerToWater, waterToLight, lightToTemp, tempToHumidity, humidityToLocation)
+    return Input(
+        seeds,
+        seedToSoil,
+        soilToFertilizer,
+        fertilizerToWater,
+        waterToLight,
+        lightToTemp,
+        tempToHumidity,
+        humidityToLocation
+    )
 }
 
 fun getMinLocation(input: Input): Long {

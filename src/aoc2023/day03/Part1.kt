@@ -30,7 +30,12 @@ fun findAllValidNumbers(engine: MutableList<List<Char>>, allNumbers: List<List<I
     return validNumbers
 }
 
-fun isSurroundedBySymbol(engine: MutableList<List<Char>>, rowIndex: Int, colIndex: Int, digits: Int): Boolean {
+fun isSurroundedBySymbol(
+    engine: MutableList<List<Char>>,
+    rowIndex: Int,
+    colIndex: Int,
+    digits: Int
+): Boolean {
     val maxColIndex = engine[0].size - 1
     val maxRowIndex = engine.size - 1
     val upperRowIndex = rowIndex - 1
