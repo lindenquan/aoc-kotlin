@@ -17,20 +17,18 @@ fun solvePart2(inputText: List<String>) {
     }
 
     val locations = getSteps(input, map)
-    val area = getAreaByShoelaceFormula(locations, inputSize.first)
+    val area = getAreaByShoelaceFormula(locations)
     val i = picksTheorem(area, locations.size)
     println(i)
 }
 
-fun getAreaByShoelaceFormula(locations: List<Pair<Int, Int>>, rowNumber: Int): Int {
+fun getAreaByShoelaceFormula(locations: List<Pair<Int, Int>>): Int {
     val xy = mutableListOf<Pair<Int, Int>>()
-    // convert row & column to x & y
     locations.forEach {
-        xy.add(Pair(it.second, rowNumber - it.first))
+        xy.add(Pair(it.first, it.second))
     }
 
-    xy.add(Pair(locations[0].second, rowNumber - locations[0].first))
-
+    xy.add(Pair(locations[0].first, locations[0].second))
     var sum1 = 0
     var sum2 = 0
     for (i in 0..<xy.size - 1) {
