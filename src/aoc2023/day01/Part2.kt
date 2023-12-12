@@ -1,4 +1,4 @@
-package day01
+package aoc2023.day01
 
 import util.process
 import util.readInput
@@ -27,8 +27,8 @@ fun advancedParse(line: String): Int {
     val n8 = "eight"
     val n9 = "nine"
 
-    var first = 0;
-    var last = 0;
+    var first = 0
+    var last = 0
     for (i in line.indices) {
         val c = line[i]
         var digit = 0
@@ -37,8 +37,7 @@ fun advancedParse(line: String): Int {
         }
 
         if (digit == 0 && i + 3 <= line.length) {
-            val threeChars = line.substring(i, i + 3)
-            when (threeChars) {
+            when (line.substring(i, i + 3)) {
                 n1 -> digit = 1
                 n2 -> digit = 2
                 n6 -> digit = 6
@@ -46,8 +45,7 @@ fun advancedParse(line: String): Int {
         }
 
         if (digit == 0 && i + 4 <= line.length) {
-            val fourChars = line.substring(i, i + 4)
-            when (fourChars) {
+            when (line.substring(i, i + 4)) {
                 n4 -> digit = 4
                 n5 -> digit = 5
                 n9 -> digit = 9
@@ -55,8 +53,7 @@ fun advancedParse(line: String): Int {
         }
 
         if (digit == 0 && i + 5 <= line.length) {
-            val fiveChars = line.substring(i, i + 5)
-            when (fiveChars) {
+            when (line.substring(i, i + 5)) {
                 n3 -> digit = 3
                 n7 -> digit = 7
                 n8 -> digit = 8

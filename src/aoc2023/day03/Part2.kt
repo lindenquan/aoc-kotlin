@@ -1,4 +1,4 @@
-package day03
+package aoc2023.day03
 
 import util.process
 import util.readInput
@@ -68,13 +68,5 @@ fun isAdjacent(it: List<Int>, i: Int, j: Int): Boolean {
         return true
     }
 
-    if (i == lowerRowIndex && j in frontColIndex..rearColIndex) {
-        return true
-    }
-
-    return false
+    return i == lowerRowIndex && j in frontColIndex..rearColIndex
 }
-
-
-
-

@@ -1,4 +1,4 @@
-package day03
+package aoc2023.day03
 
 import util.process
 import util.readInput
@@ -115,5 +115,3 @@ fun findAllNumbers(engine: MutableList<List<Char>>): List<List<Int>> {
 
     return allNumbers
 }
-
-

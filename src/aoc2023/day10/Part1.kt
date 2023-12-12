@@ -1,4 +1,4 @@
-package day10
+package aoc2023.day10
 
 import util.List2D
 import util.process
@@ -7,7 +7,6 @@ import util.readInput
 enum class Mark {
     NOT_VISITED,
     VISITED,
-    SURROUNDED
 }
 
 fun main() {

@@ -1,4 +1,4 @@
-package day02
+package aoc2023.day02
 
 import util.process
 import util.readInput
@@ -25,9 +25,9 @@ fun possible(line: String, target: HashMap<String, Int>): Int {
     val greenCount = getColorCount("green", game)
     val blueCount = getColorCount("blue", game)
 
-    val targetRed = target.get("red")!!
-    val targetGreen = target.get("green")!!
-    val targetBlue = target.get("blue")!!
+    val targetRed = target["red"]!!
+    val targetGreen = target["green"]!!
+    val targetBlue = target["blue"]!!
 
     if (redCount <= targetRed && greenCount <= targetGreen && blueCount <= targetBlue) {
         return gameNumber.toInt()
@@ -39,4 +39,3 @@ fun possible(line: String, target: HashMap<String, Int>): Int {
 fun getColorCount(color: String, game: String): Int {
     return Regex("(\\d+) $color").findAll(game).map { it.groupValues[1].toInt() }.max()
 }
-

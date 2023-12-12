@@ -1,4 +1,4 @@
-package day04
+package aoc2023.day04
 
 import util.process
 import util.readInput
@@ -47,7 +47,7 @@ fun getPoints(card: Card): Int {
         return card.point
     }
 
-    val allNumbersMap = card.allNumbers.map { it to 1 }.toMap()
+    val allNumbersMap = card.allNumbers.associateWith { 1 }
     var count = 0
     card.winningNumbers.forEach { if (allNumbersMap.getOrDefault(it, 0) == 1) count++ }
     card.point = count
@@ -61,8 +61,3 @@ fun convertToCard(line: String): Card {
     val allNumbers = numbers[2]
     return Card(number, winningNumbers, allNumbers)
 }
-
-
-
-
-

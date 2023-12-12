@@ -1,4 +1,4 @@
-package day10
+package aoc2023.day10
 
 import util.List2D
 import util.process

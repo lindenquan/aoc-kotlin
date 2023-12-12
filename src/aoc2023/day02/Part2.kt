@@ -1,4 +1,4 @@
-package day02
+package aoc2023.day02
 
 import util.process
 import util.readInput
@@ -26,4 +26,3 @@ fun powerOfCubes(line: String): Int {
 
     return redCount * greenCount * blueCount
 }
-

@@ -1,4 +1,4 @@
-package day01
+package aoc2023.day01
 
 import util.process
 import util.readInput
@@ -17,7 +17,7 @@ fun solvePart1(input: List<String>) {
 }
 
 fun parse(line: String): Int {
-    var first = 0;
+    var first = 0
     for (c in line) {
         if (c in '0'..'9') {
             first = c - '0'

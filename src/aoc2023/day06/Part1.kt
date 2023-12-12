@@ -1,4 +1,4 @@
-package day06
+package aoc2023.day06
 
 import util.process
 import util.readInput
@@ -8,7 +8,6 @@ data class Race(val time: Long, val distance: Long) {
         return "{time: $time, distance: $distance}"
     }
 }
-
 
 fun main() {
     process(readInput("aoc2023/day06/input.txt"), ::solvePart1)
@@ -50,4 +49,3 @@ fun getNumberList(s: String): List<Long> {
         .filter { it.isNotEmpty() }
         .map { it.toLong() }
 }
-

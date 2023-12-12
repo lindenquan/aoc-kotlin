@@ -1,4 +1,4 @@
-package day06
+package aoc2023.day06
 
 import util.process
 import util.readInput

@@ -1,4 +1,4 @@
-package day09
+package aoc2023.day09
 
 import util.process
 import util.readInput
@@ -8,8 +8,8 @@ fun main() {
 }
 
 fun solvePart2(inputText: List<String>) {
-    val input = inputText.map {
-        it.split(" ").map { it.toLong() }
+    val input = inputText.map { row ->
+        row.split(" ").map { it.toLong() }
     }
 
     val result = input.sumOf {

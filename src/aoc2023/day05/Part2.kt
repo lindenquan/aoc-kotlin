@@ -1,8 +1,7 @@
-package day05
+package aoc2023.day05
 
 import util.process
 import util.readInput
-
 
 fun main() {
     process(readInput("aoc2023/day05/input.txt"), ::solvePart2)
@@ -94,5 +93,5 @@ fun getTargetRange(sourceRange: LongRange, map: Map): LongRange {
 }
 
 fun getOverlap(range1: LongRange, range2: LongRange): LongRange {
-    return Math.max(range1.first, range2.first)..Math.min(range1.last, range2.last)
+    return range1.first.coerceAtLeast(range2.first)..range1.last.coerceAtMost(range2.last)
 }

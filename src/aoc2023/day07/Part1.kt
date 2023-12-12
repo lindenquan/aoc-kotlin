@@ -1,4 +1,4 @@
-package day07
+package aoc2023.day07
 
 import util.process
 import util.readInput
@@ -9,18 +9,20 @@ enum class GameMode {
 }
 
 class Card(
-    val card: String,
+    private val card: String,
     val point: Long,
-    val gameMode: GameMode = GameMode.D_MODE
+    private val gameMode: GameMode = GameMode.D_MODE
 ) : Comparable<Card> {
+    companion object {
+        const val JOKER = 1
+    }
+
     // key -> card value
     // value -> count
     private val value: List<Pair<Int, Int>>
 
     // card in digit form
     private lateinit var digitCard: List<Int>
-
-    val JOKER = 1
 
     init {
         fun convertToDigitCard(): List<Int> {
@@ -83,7 +85,7 @@ class Card(
     private fun compareList(list1: List<Int>, list2: List<Int>): Int {
         var compareResult = 0
         for (i in list1.indices) {
-            compareResult = list1[i] - list2.getOrElse(i, ::defaultValue)
+            compareResult = list1[i] - list2.getOrElse(i) { 0 }
             if (compareResult != 0) {
                 break
             }
@@ -91,8 +93,6 @@ class Card(
 
         return compareResult
     }
-
-    private fun defaultValue(i: Int) = 0
 }
 
 data class Input(
