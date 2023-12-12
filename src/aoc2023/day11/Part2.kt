@@ -12,7 +12,7 @@ fun main() {
 fun solvePart2(inputText: List<String>) {
     val input = List2D(inputText, Char::class)
     val locations = input.findAll('#')
-    val combinations = combination(IntArray(locations.size) { it }, 2)
+    val combinations = combination(IntArray(locations.size) { it }, 2)!!
     val rows = input.rowsAll('.')
     val cols = input.colsAll('.')
     var sum = 0L

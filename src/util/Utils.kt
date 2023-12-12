@@ -16,9 +16,35 @@ fun process(input: List<String>, solve: KFunction1<List<String>, Unit>) {
     println("spent: ${end - start}ms")
 }
 
+fun combination(arr: IntArray, r: Int): MutableList<MutableList<Int>>? {
+    if (arr.size < r || r < 1) {
+        return null
+    }
+
+    val input = MutableList(arr.size) { arr[it] }
+    if (input.size == r) {
+        return mutableListOf(input)
+    }
+
+    val first = input.removeFirst()
+    val subArray = IntArray(input.size) { input[it] }
+    val otherRSizeCombinations = combination(subArray, r)!!
+    if (r > 1) {
+        val otherCombinations = combination(subArray, r - 1)
+        otherCombinations?.forEach {
+            it.add(0, first)
+            otherRSizeCombinations.add(it)
+        }
+    } else {
+        otherRSizeCombinations.add(mutableListOf(first))
+    }
+
+    return otherRSizeCombinations
+}
+
 // The main function that prints all combinations of size r
 // in arr[] of size n. This function mainly uses combinationUtil()
-fun combination(arr: IntArray, r: Int): List<List<Int>> {
+fun combination2(arr: IntArray, r: Int): List<List<Int>> {
     val combinationList = mutableListOf<List<Int>>()
 
     // A temporary array to store all combination one by one

@@ -13,7 +13,7 @@ fun solvePart1(inputText: List<String>) {
     val input = List2D(inputText, Char::class)
     val expandedInput = expendInput(input)
     val locations = expandedInput.findAll('#')
-    val combinations = combination(IntArray(locations.size) { it }, 2)
+    val combinations = combination(IntArray(locations.size) { it }, 2)!!
     val sum = combinations.sumOf {
         expandedInput.shortestPathSteps(locations[it[0]], locations[it[1]])
     }
