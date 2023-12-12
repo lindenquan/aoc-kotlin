@@ -3,7 +3,7 @@ package util
 import kotlin.reflect.KClass
 
 open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Regex = Regex("")) {
-    val data: List<List<T>>
+    private val data: List<List<T>>
 
     init {
         data = _data.map { row ->
@@ -26,7 +26,7 @@ open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Reg
     fun find(item: T): Pair<Int, Int>? {
         for (i in data.indices) {
             for (j in data[i].indices) {
-                if (data[i][j].equals(item)) {
+                if (data[i][j] == item) {
                     return Pair(i, j)
                 }
             }
@@ -47,5 +47,3 @@ open class List2D<T : Any>(_data: List<String>, _type: KClass<T>, delimiter: Reg
         }
     }
 }
-
-
