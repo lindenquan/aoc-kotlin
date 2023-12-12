@@ -1,7 +1,7 @@
 package day04
 
-import process
-import readInput
+import util.process
+import util.readInput
 import java.util.*
 
 class Card(

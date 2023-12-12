@@ -1,7 +1,7 @@
 package day07
 
-import process
-import readInput
+import util.process
+import util.readInput
 
 enum class GameMode {
     D_MODE, // default mode

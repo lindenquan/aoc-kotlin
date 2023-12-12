@@ -1,7 +1,7 @@
 package day05
 
-import process
-import readInput
+import util.process
+import util.readInput
 
 
 fun main() {

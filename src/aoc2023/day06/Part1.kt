@@ -1,7 +1,7 @@
 package day06
 
-import process
-import readInput
+import util.process
+import util.readInput
 
 data class Race(val time: Long, val distance: Long) {
     override fun toString(): String {

@@ -1,7 +1,7 @@
 package day03
 
-import process
-import readInput
+import util.process
+import util.readInput
 
 fun main() {
     process(readInput("aoc2023/day03/input.txt"), ::solvePart1)

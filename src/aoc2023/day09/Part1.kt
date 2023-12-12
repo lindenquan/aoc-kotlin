@@ -1,7 +1,7 @@
 package day9
 
-import process
-import readInput
+import util.process
+import util.readInput
 
 data class Input(
     val steps: List<Int>, val map: Map<String, List<String>>
