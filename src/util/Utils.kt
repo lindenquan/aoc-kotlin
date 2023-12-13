@@ -9,6 +9,14 @@ import kotlin.reflect.KFunction1
  */
 fun readInput(name: String) = Path("src/$name").readLines()
 
+fun repeat(item: String, separator: String, multiple: Int): String {
+    check(multiple > 0)
+    if (multiple == 1) {
+        return item
+    }
+    return item + "${separator}${item}".repeat(multiple - 1)
+}
+
 fun process(input: List<String>, solve: KFunction1<List<String>, Unit>) {
     val start = System.currentTimeMillis()
     solve(input)
